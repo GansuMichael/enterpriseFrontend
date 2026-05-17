@@ -1,0 +1,500 @@
+export default function AdminDashboard(){
+
+    const stats = [
+      {
+        title: "Total Users",
+        value: "12,450",
+        growth: "+18%"
+      },
+      {
+        title: "Premium Users",
+        value: "4,280",
+        growth: "+12%"
+      },
+      {
+        title: "Revenue",
+        value: "$48,200",
+        growth: "+24%"
+      },
+      {
+        title: "Active Farms",
+        value: "1,820",
+        growth: "+9%"
+      }
+    ];
+  
+    const users = [
+      {
+        name: "Michael Gansu",
+        email: "michael@gansuai.com",
+        plan: "Premium",
+        status: "Active"
+      },
+      {
+        name: "John Farmer",
+        email: "john@gmail.com",
+        plan: "Free Trial",
+        status: "Expired"
+      },
+      {
+        name: "Sarah Poultry",
+        email: "sarah@gmail.com",
+        plan: "Premium",
+        status: "Active"
+      },
+      {
+        name: "David Feedmill",
+        email: "david@gmail.com",
+        plan: "Basic",
+        status: "Active"
+      }
+    ];
+  
+    const inventory = [
+      {
+        item: "Maize",
+        quantity: "2.5 Tons",
+        status: "Available"
+      },
+      {
+        item: "Soybean Meal",
+        quantity: "1.2 Tons",
+        status: "Low Stock"
+      },
+      {
+        item: "Palm Oil",
+        quantity: "450 Litres",
+        status: "Available"
+      }
+    ];
+  
+    return (
+  
+      <div className="min-h-screen bg-[#07130b] text-white flex overflow-hidden">
+  
+        {/* ===========================
+        SIDEBAR
+        =========================== */}
+  
+        <aside className="w-72 bg-black/30 border-r border-white/10 hidden lg:flex flex-col p-6 backdrop-blur-xl">
+  
+          <div>
+            <h1 className="text-3xl font-extrabold text-green-400 mb-12">
+              GANSU ADMIN
+            </h1>
+  
+            <nav className="space-y-4">
+  
+              <button className="w-full text-left p-4 rounded-2xl bg-green-500/20 border border-green-500/30 hover:bg-green-500/30 transition">
+                Dashboard
+              </button>
+  
+              <button className="w-full text-left p-4 rounded-2xl hover:bg-white/10 transition">
+                Users
+              </button>
+  
+              <button className="w-full text-left p-4 rounded-2xl hover:bg-white/10 transition">
+                Subscriptions
+              </button>
+  
+              <button className="w-full text-left p-4 rounded-2xl hover:bg-white/10 transition">
+                Revenue
+              </button>
+  
+              <button className="w-full text-left p-4 rounded-2xl hover:bg-white/10 transition">
+                Inventory
+              </button>
+  
+              <button className="w-full text-left p-4 rounded-2xl hover:bg-white/10 transition">
+                Notifications
+              </button>
+  
+              <button className="w-full text-left p-4 rounded-2xl hover:bg-white/10 transition">
+                Analytics
+              </button>
+  
+              <button className="w-full text-left p-4 rounded-2xl hover:bg-white/10 transition">
+                Settings
+              </button>
+  
+            </nav>
+          </div>
+  
+          <div className="mt-auto">
+  
+            <div className="bg-green-500/10 border border-green-500/20 rounded-3xl p-5">
+              <h3 className="text-lg font-bold mb-2">
+                Enterprise Plan
+              </h3>
+  
+              <p className="text-sm text-gray-300 mb-4">
+                AI analytics, unlimited farms, advanced reporting.
+              </p>
+  
+              <button className="w-full bg-green-400 text-black py-3 rounded-2xl font-bold hover:scale-105 transition">
+                Manage Plan
+              </button>
+            </div>
+  
+          </div>
+  
+        </aside>
+  
+        {/* ===========================
+        MAIN CONTENT
+        =========================== */}
+  
+        <main className="flex-1 overflow-y-auto p-4 md:p-8">
+  
+          {/* ===========================
+          TOP BAR
+          =========================== */}
+  
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
+  
+            <div>
+              <h2 className="text-4xl font-extrabold mb-2">
+                Admin Dashboard
+              </h2>
+  
+              <p className="text-gray-400">
+                Monitor your SaaS platform, users, subscriptions, and analytics.
+              </p>
+            </div>
+  
+            <div className="flex gap-4 flex-wrap">
+  
+              <input
+                type="text"
+                placeholder="Search users..."
+                className="bg-white/10 border border-white/10 rounded-2xl px-5 py-3 outline-none w-72"
+              />
+  
+              <button className="bg-green-400 text-black px-6 py-3 rounded-2xl font-bold hover:scale-105 transition">
+                Add User
+              </button>
+  
+            </div>
+  
+          </div>
+  
+          {/* ===========================
+          STATISTICS
+          =========================== */}
+  
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
+  
+            {stats.map((item,index)=>(
+  
+              <div
+                key={index}
+                className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:-translate-y-2 transition duration-300 shadow-2xl"
+              >
+  
+                <p className="text-gray-400 mb-3">
+                  {item.title}
+                </p>
+  
+                <h3 className="text-4xl font-extrabold mb-4">
+                  {item.value}
+                </h3>
+  
+                <span className="bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm">
+                  {item.growth}
+                </span>
+  
+              </div>
+  
+            ))}
+  
+          </div>
+  
+          {/* ===========================
+          CHARTS SECTION
+          =========================== */}
+  
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-10">
+  
+            <div className="xl:col-span-2 bg-white/5 border border-white/10 rounded-3xl p-6">
+  
+              <div className="flex justify-between items-center mb-8">
+                <h3 className="text-2xl font-bold">
+                  Revenue Analytics
+                </h3>
+  
+                <select className="bg-black/30 border border-white/10 rounded-xl px-4 py-2 outline-none">
+                  <option>Monthly</option>
+                  <option>Yearly</option>
+                </select>
+              </div>
+  
+              <div className="h-72 flex items-end gap-4">
+  
+                <div className="flex-1 bg-green-400 rounded-t-3xl h-[35%]"></div>
+                <div className="flex-1 bg-green-400 rounded-t-3xl h-[50%]"></div>
+                <div className="flex-1 bg-green-400 rounded-t-3xl h-[70%]"></div>
+                <div className="flex-1 bg-green-400 rounded-t-3xl h-[45%]"></div>
+                <div className="flex-1 bg-green-400 rounded-t-3xl h-[80%]"></div>
+                <div className="flex-1 bg-green-400 rounded-t-3xl h-[65%]"></div>
+                <div className="flex-1 bg-green-400 rounded-t-3xl h-[95%]"></div>
+  
+              </div>
+  
+            </div>
+  
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
+  
+              <h3 className="text-2xl font-bold mb-8">
+                Subscription Plans
+              </h3>
+  
+              <div className="space-y-6">
+  
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span>Premium</span>
+                    <span>68%</span>
+                  </div>
+  
+                  <div className="w-full h-4 bg-black/30 rounded-full overflow-hidden">
+                    <div className="h-full w-[68%] bg-green-400 rounded-full"></div>
+                  </div>
+                </div>
+  
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span>Basic</span>
+                    <span>22%</span>
+                  </div>
+  
+                  <div className="w-full h-4 bg-black/30 rounded-full overflow-hidden">
+                    <div className="h-full w-[22%] bg-yellow-400 rounded-full"></div>
+                  </div>
+                </div>
+  
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span>Free Trial</span>
+                    <span>10%</span>
+                  </div>
+  
+                  <div className="w-full h-4 bg-black/30 rounded-full overflow-hidden">
+                    <div className="h-full w-[10%] bg-red-400 rounded-full"></div>
+                  </div>
+                </div>
+  
+              </div>
+  
+            </div>
+  
+          </div>
+  
+          {/* ===========================
+          USERS TABLE
+          =========================== */}
+  
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 mb-10 overflow-x-auto">
+  
+            <div className="flex justify-between items-center mb-6">
+  
+              <h3 className="text-2xl font-bold">
+                Registered Users
+              </h3>
+  
+              <button className="bg-green-400 text-black px-5 py-3 rounded-2xl font-bold hover:scale-105 transition">
+                Export CSV
+              </button>
+  
+            </div>
+  
+            <table className="w-full min-w-[700px]">
+  
+              <thead>
+                <tr className="border-b border-white/10 text-left text-gray-400">
+                  <th className="pb-4">Name</th>
+                  <th className="pb-4">Email</th>
+                  <th className="pb-4">Plan</th>
+                  <th className="pb-4">Status</th>
+                  <th className="pb-4">Actions</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+  
+                {users.map((user,index)=>(
+  
+                  <tr
+                    key={index}
+                    className="border-b border-white/5 hover:bg-white/5 transition"
+                  >
+  
+                    <td className="py-5 font-medium">
+                      {user.name}
+                    </td>
+  
+                    <td>
+                      {user.email}
+                    </td>
+  
+                    <td>
+                      <span className="bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm">
+                        {user.plan}
+                      </span>
+                    </td>
+  
+                    <td>
+                      <span className={`${user.status === "Active" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"} px-4 py-2 rounded-full text-sm`}>
+                        {user.status}
+                      </span>
+                    </td>
+  
+                    <td>
+                      <div className="flex gap-3">
+  
+                        <button className="px-4 py-2 rounded-xl bg-blue-500/20 text-blue-400 hover:scale-105 transition">
+                          View
+                        </button>
+  
+                        <button className="px-4 py-2 rounded-xl bg-red-500/20 text-red-400 hover:scale-105 transition">
+                          Block
+                        </button>
+  
+                      </div>
+                    </td>
+  
+                  </tr>
+  
+                ))}
+  
+              </tbody>
+  
+            </table>
+  
+          </div>
+  
+          {/* ===========================
+          INVENTORY TABLE
+          =========================== */}
+  
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 mb-10 overflow-x-auto">
+  
+            <div className="flex justify-between items-center mb-6">
+  
+              <h3 className="text-2xl font-bold">
+                Feed Inventory
+              </h3>
+  
+              <button className="bg-green-400 text-black px-5 py-3 rounded-2xl font-bold hover:scale-105 transition">
+                Add Inventory
+              </button>
+  
+            </div>
+  
+            <table className="w-full min-w-[600px]">
+  
+              <thead>
+                <tr className="border-b border-white/10 text-left text-gray-400">
+                  <th className="pb-4">Item</th>
+                  <th className="pb-4">Quantity</th>
+                  <th className="pb-4">Status</th>
+                  <th className="pb-4">Action</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+  
+                {inventory.map((item,index)=>(
+  
+                  <tr
+                    key={index}
+                    className="border-b border-white/5 hover:bg-white/5 transition"
+                  >
+  
+                    <td className="py-5 font-medium">
+                      {item.item}
+                    </td>
+  
+                    <td>
+                      {item.quantity}
+                    </td>
+  
+                    <td>
+                      <span className={`${item.status === "Available" ? "bg-green-500/20 text-green-400" : "bg-yellow-500/20 text-yellow-400"} px-4 py-2 rounded-full text-sm`}>
+                        {item.status}
+                      </span>
+                    </td>
+  
+                    <td>
+                      <button className="px-4 py-2 rounded-xl bg-green-500/20 text-green-400 hover:scale-105 transition">
+                        Update
+                      </button>
+                    </td>
+  
+                  </tr>
+  
+                ))}
+  
+              </tbody>
+  
+            </table>
+  
+          </div>
+  
+          {/* ===========================
+          QUICK ACTIONS
+          =========================== */}
+  
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  
+            <div className="bg-gradient-to-br from-green-500/20 to-green-500/5 border border-green-500/20 rounded-3xl p-6 hover:scale-[1.02] transition">
+              <h3 className="text-2xl font-bold mb-3">
+                Send Notifications
+              </h3>
+  
+              <p className="text-gray-300 mb-6">
+                Notify users about updates, promotions, and subscription reminders.
+              </p>
+  
+              <button className="bg-green-400 text-black px-5 py-3 rounded-2xl font-bold hover:scale-105 transition">
+                Send Now
+              </button>
+            </div>
+  
+            <div className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 border border-blue-500/20 rounded-3xl p-6 hover:scale-[1.02] transition">
+              <h3 className="text-2xl font-bold mb-3">
+                Generate Reports
+              </h3>
+  
+              <p className="text-gray-300 mb-6">
+                Export financial, inventory, and production reports instantly.
+              </p>
+  
+              <button className="bg-blue-400 text-black px-5 py-3 rounded-2xl font-bold hover:scale-105 transition">
+                Generate
+              </button>
+            </div>
+  
+            <div className="bg-gradient-to-br from-yellow-500/20 to-yellow-500/5 border border-yellow-500/20 rounded-3xl p-6 hover:scale-[1.02] transition">
+              <h3 className="text-2xl font-bold mb-3">
+                AI Predictions
+              </h3>
+  
+              <p className="text-gray-300 mb-6">
+                Predict feed usage, mortality, and revenue trends using AI.
+              </p>
+  
+              <button className="bg-yellow-400 text-black px-5 py-3 rounded-2xl font-bold hover:scale-105 transition">
+                Analyze
+              </button>
+            </div>
+  
+          </div>
+  
+        </main>
+  
+      </div>
+  
+    );
+  
+  }
+  
