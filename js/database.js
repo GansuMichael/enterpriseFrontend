@@ -22,6 +22,18 @@ request.onupgradeneeded =
 
    }
 
+   if(!db.objectStoreNames.contains('offlineData')){
+
+    db.createObjectStore(
+       'offlineData',
+       {
+          keyPath:'id',
+          autoIncrement:true
+       }
+    );
+
+ }
+
    if(!db.objectStoreNames.contains('broiler')){
 
       db.createObjectStore(
@@ -67,4 +79,9 @@ request.onsuccess =
 
    console.log('IndexedDB Ready');
 
+};
+
+request.onerror =
+(event) => {
+    console.log("Database Error", event.target.error);
 };
